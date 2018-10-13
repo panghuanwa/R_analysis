@@ -1,0 +1,35 @@
+---
+title: "R_base"
+author: "Lizeyu"
+#date: "10/13/2018"
+output: 
+  html_notebook: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 基本統計量
+```{r cars}
+summary(iris)
+```
+
+## 分散共分散行列
+
+```{r pressure, echo=FALSE}
+# var(iris[1:4], na.rm = T) # 分散
+variance = var(iris[1:4], na.rm = T) * (length(iris) - 1) / length(iris) # 不変分散
+print(round(variance, 2))
+```
+
+## 相関係数
+- pearson 相関係数
+\begin{align*}
+\rho = \frac{E[(X - E[X])(Y - E[Y])]}{(E[(X - E[X])^2]E[(Y - E[Y])^2])^{1/2}}
+\end{align*}
+
+```{r}
+print(round(cor(iris[1:4]), 2), method = "pearson")
+```
